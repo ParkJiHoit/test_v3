@@ -111,7 +111,10 @@
       font-weight: 800; line-height: 1.0; letter-spacing: -.02em;
       color: #fff; margin-bottom: 32px;
     }
-    .hero-h1 .blue { color: #a08bd0; }
+    .hero-h1 .blue {
+      color: #FF78C4;
+      text-shadow: 0 0 40px rgba(255,120,196,.40);
+    }
     .hero-sub {
       font-size: clamp(17px, 2vw, 20px);
       color: rgba(255,255,255,.62);
@@ -769,6 +772,7 @@
     .cost-line { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--border); }
     .cost-line:last-child { border-bottom: none; }
     .cll { font-size: 16px; color: var(--text-sub); }
+    .cll-note { font-size: 13px; font-weight: 500; color: var(--text-muted); margin-left: 5px; }
     .clr { display: flex; align-items: center; gap: 14px; }
     .c-orig { font-size: 14px; color: var(--text-muted); text-decoration: line-through; }
     .c-val { font-size: clamp(20px, 2.8vw, 30px); font-weight: 800; letter-spacing: -.03em; color: var(--text); }
@@ -987,6 +991,34 @@
       .cta-contact-main { font-size: 20px; }
       .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
       .f-note { text-align: center; }
+
+      /* ── 프롭 스티키 헤드 ── */
+      .props-sticky-head { padding: 36px 20px 20px; }
+
+      /* ── 인터뷰 숫자 (ti-num) ── */
+      .ti-num { font-size: clamp(32px, 8vw, 48px); }
+      .ti-stat--featured .ti-num { font-size: clamp(36px, 9vw, 52px); }
+      .ti-sep { margin: 0 20px; }
+
+      /* ── 수익 차트 숫자 ── */
+      .rbc-profit-num { font-size: clamp(38px, 9vw, 56px); }
+
+      /* ── 창업 비용 합산 금액 ── */
+      .ct-val { font-size: clamp(28px, 7vw, 40px); }
+
+      /* ── FAQ 본문 좌측 패딩 ── */
+      .faq-body-in { padding: 0 0 20px 32px; }
+
+      /* ── 언론 보도 벤토 그리드 → 1열 ── */
+      .press-grid { grid-template-columns: 1fr; }
+      .pcard--featured { grid-column: auto; grid-row: auto; }
+
+      /* ── 히어로 h1 폰트 축소 + 불필요한 br 제거 ── */
+      .hero-h1 { font-size: clamp(36px, 9vw, 52px); }
+      .hero-h1 br { display: none; }
+
+      /* ── p 태그 안 데스크탑용 br 제거 (자연 줄바꿈으로 대체) ── */
+      .sec-p br, .cta-p br, .hero-sub br { display: none; }
     }
 
     /* ══════════════════════════════════
@@ -1568,7 +1600,7 @@
     <div class="faq-list">
       <div class="faq-item reveal">
         <button class="faq-btn"><div class="faq-left"><span class="faq-qnum">Q 01</span><span class="faq-qtxt">휴대폰 판매 경험이 없어도 할 수 있나요?</span></div><div class="faq-tog"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div></button>
-        <div class="faq-body"><div class="faq-body-in">전혀 문제없습니다. 매출이 실제로 발생하고 있는 매장에서 직접 실습하는 옆커폰만의 현장 교육 시스템이 준비되어 있습니다. 판매부터 고객 응대까지 실전 경험을 쌓을 수 있으며, 본사 슈퍼바이저가 운영이 안정화될 때까지 1:1로 함께합니다. 실제로 저희 가맹점주 중 상당수가 판매 경험 없이 시작하셨습니다.</div></div>
+        <div class="faq-body"><div class="faq-body-in">전혀 문제없습니다. 실제 매출이 발생하고 있는 상위 매출 지점에서 직접 실습하는 옆커폰만의 현장 교육 시스템이 준비되어 있습니다. 판매부터 고객 응대까지 실전 경험을 쌓을 수 있으며, 본사 슈퍼바이저가 운영이 안정화될 때까지 1:1로 함께합니다. 실제로 저희 가맹점주 중 상당수가 판매 경험 없이 시작하셨습니다.</div></div>
       </div>
       <div class="faq-item reveal rd1">
         <button class="faq-btn"><div class="faq-left"><span class="faq-qnum">Q 02</span><span class="faq-qtxt">미팅은 어떻게 진행되나요? 계약 압박 있나요?</span></div><div class="faq-tog"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div></button>
@@ -1604,7 +1636,7 @@
       <div class="cost-lines">
         <div class="cost-line"><span class="cll">가맹비</span><div class="clr"><div class="price-anim"><span class="pa-orig">2,200만 원</span><span class="pa-arrow">→</span><span class="pa-new">500만 <span class="ba">원</span></span></div></div></div>
         <div class="cost-line"><span class="cll">교육비</span><div class="clr"><div class="price-anim"><span class="pa-orig">1,100만 원</span><span class="pa-arrow">→</span><span class="pa-new">200만 <span class="ba">원</span></span></div></div></div>
-        <div class="cost-line"><span class="cll">보증금</span><div class="clr"><div class="price-anim"><span class="pa-orig">2,200만 원</span><span class="pa-arrow">→</span><span class="pa-new exempt">보증금 면제</span></div></div></div>
+        <div class="cost-line"><span class="cll">계약이행 보증금<span class="cll-note">(만료 시 반환)</span></span><div class="clr"><div class="price-anim"><span class="pa-orig">2,200만 원</span><span class="pa-arrow">→</span><span class="pa-new exempt">면제</span></div></div></div>
         <div class="cost-line"><span class="cll">기타 초기비용 (인테리어·집기 등)</span><div class="clr"><span class="c-val" style="font-size:18px;font-weight:500;color:var(--text-sub)">별도 협의</span></div></div>
       </div>
     </div>
@@ -1724,12 +1756,15 @@
       /* 딥 퍼플 베이스 */
       vec3 col = vec3(.13, .06, .32);
 
-      /* ── 오브 5개 — 리사주 경로 ── */
-      col += orb(uv, vec2(sin(t*.72)*.46, cos(t*.54)*.28), .022) * vec3(.55,.20,.85);
-      col += orb(uv, vec2(cos(t*.50+1.1)*.34, sin(t*.83+2.0)*.34), .018) * vec3(.38,.14,.80);
-      col += orb(uv, vec2(sin(t*.91+2.7)*.40, cos(t*.61+1.4)*.22), .015) * vec3(.68,.32,.90);
-      col += orb(uv, vec2(cos(t*.64+3.8)*.29, sin(t*.76+.9)*.39), .016) * vec3(.23,.13,.78);
-      col += orb(uv, vec2(sin(t*.42+5.1)*.36, cos(t*.38+3.6)*.30), .012) * vec3(.85,.43,.62);
+      /* 중앙 억제 — 중심에서 가까울수록 오브 효과 소멸 */
+      float cm = smoothstep(.08, .32, length(uv));
+
+      /* ── 오브 5개 — 외곽 궤도 (진폭 크게 올려 항상 가장자리에 머묾) ── */
+      col += orb(uv, vec2(sin(t*.72)*.74, cos(t*.54)*.44), .026) * vec3(.55,.20,.85) * cm;
+      col += orb(uv, vec2(cos(t*.50+1.1)*.68, sin(t*.83+2.0)*.46), .022) * vec3(.38,.14,.80) * cm;
+      col += orb(uv, vec2(sin(t*.91+2.7)*.78, cos(t*.61+1.4)*.40), .019) * vec3(.68,.32,.90) * cm;
+      col += orb(uv, vec2(cos(t*.64+3.8)*.70, sin(t*.76+.9)*.48), .020) * vec3(.23,.13,.78) * cm;
+      col += orb(uv, vec2(sin(t*.42+5.1)*.72, cos(t*.38+3.6)*.42), .016) * vec3(.85,.43,.62) * cm;
 
       /* 에지 비네트 */
       float vign = 1. - smoothstep(.38, 1.25, length(uv + vec2(0.,.06)));
