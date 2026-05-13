@@ -48,6 +48,7 @@
       -webkit-font-smoothing: antialiased;
     }
     a { text-decoration: none; color: inherit; }
+    br.mob-br { display: none; }
     img { max-width: 100%; display: block; }
     .wrap { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
 
@@ -982,7 +983,7 @@
       .video-grid { grid-template-columns: 1fr; }
       .cost-top { flex-direction: column; align-items: flex-start; gap: 12px; padding: 24px; }
       .cost-lines { padding: 8px 20px; }
-      .cost-total { padding: 22px 20px; flex-direction: column; align-items: flex-start; gap: 10px; }
+      .cost-total { padding: 22px 20px; flex-direction: row; align-items: center; justify-content: space-between; }
       .cost-extras { grid-template-columns: 1fr; }
       .step-n { width: 38px; height: 38px; font-size: 13px; }
       .step-lc { width: 38px; }
@@ -1005,6 +1006,10 @@
 
       /* ── 창업 비용 합산 금액 ── */
       .ct-val { font-size: clamp(28px, 7vw, 40px); }
+      /* ── 면제 텍스트 줄바꿈 방지 ── */
+      .pa-new.exempt { white-space: nowrap; }
+      /* ── 계약이행 보증금 두 줄 — cll-note 마진 초기화 ── */
+      .cll-note { margin-left: 0; }
 
       /* ── FAQ 본문 좌측 패딩 ── */
       .faq-body-in { padding: 0 0 20px 32px; }
@@ -1028,6 +1033,17 @@
 
       /* ── 슬라이딩 넘버 줄바꿈 방지 ── */
       .sn-num { white-space: nowrap; }
+
+      /* ── prop 칩 일렬 배치 ── */
+      .prop-chips { flex-wrap: nowrap; }
+      .prop-chip { white-space: nowrap; flex-shrink: 0; }
+
+      /* ── 언론 보도 strip — 간격 축소 + 일렬 배치 ── */
+      .press-media-strip { flex-wrap: nowrap; margin-bottom: 28px; padding: 10px 18px; gap: 10px; }
+      .press-media-dot { flex-shrink: 0; }
+
+      /* ── 모바일 전용 br (데스크탑에서는 숨김) ── */
+      br.mob-br { display: inline; }
     }
 
     /* ══════════════════════════════════
@@ -1348,7 +1364,7 @@
         <!-- 카드 4 -->
         <div class="prop-card">
           <div class="prop-icon">💡</div>
-          <p class="prop-title">통신 3사 취급 + 다양한 수익원</p>
+          <p class="prop-title">통신 3사 취급 +<br class="mob-br"> 다양한 수익원</p>
           <p class="prop-desc">휴대폰 판매에서 그치지 않습니다. SK·KT·LG 3사를 동시에 취급하고, 인터넷·정수기·가전렌탈 결합 상품까지 연결해 객단가를 높입니다.</p>
           <div class="prop-chips">
             <span class="prop-chip">통신 3사</span>
@@ -1384,7 +1400,7 @@
     <div class="reveal">
       <span class="sec-lbl">실적 공개</span>
       <h2 class="sec-h">전국 가맹점<br>실제 매출 데이터</h2>
-      <p class="sec-p">기대치가 아닙니다. 2026년 4월 기준, 실제로 달성한 수치입니다.</p>
+      <p class="sec-p">기대치가 아닙니다. 2026년 4월 기준,<br class="mob-br"> 실제로 달성한 수치입니다.</p>
     </div>
     <!-- Tossincome 스타일 글라스모피즘 수치 카드 -->
     <div class="ti-card reveal rd1">
@@ -1432,7 +1448,7 @@
             <div class="rbc-profit-fill" id="profit-fill" data-w="65"></div>
           </div>
           <div class="rbc-profit-compare"><span>타 업종 20~30%</span><span>옆커폰 60~70%</span></div>
-          <p class="rbc-profit-desc">고정 원가 없이 수수료 구조로 수익을 가져갑니다. 재고 손실·인건비 없이 순이익을 극대화합니다.</p>
+          <p class="rbc-profit-desc">고정 원가 없이 수수료 구조로 수익을 가져갑니다.<br class="mob-br"> 재고 손실·인건비 없이 순이익을 극대화합니다.</p>
         </div>
       </div>
     </div>
@@ -1608,7 +1624,7 @@
     <div class="reveal">
       <span class="sec-lbl">FAQ</span>
       <h2 class="sec-h">자주 묻는 질문</h2>
-      <p class="sec-p">미팅 전, 가장 많이 물어보시는 질문들을 먼저 정리했습니다.</p>
+      <p class="sec-p">미팅 전, 가장 많이 물어보시는<br class="mob-br"> 질문들을 먼저 정리했습니다.</p>
     </div>
     <div class="faq-list">
       <div class="faq-item reveal">
@@ -1634,7 +1650,7 @@
   <div class="wrap">
     <div class="reveal">
       <span class="sec-lbl">창업 비용</span>
-      <h2 class="sec-h">단 700만 원으로<br>시작할 수 있습니다</h2>
+      <h2 class="sec-h">최소 700만 원으로<br>시작할 수 있습니다</h2>
       <p class="sec-p">가맹비 + 교육비, 두 항목을 합산한 특별 혜택가입니다.<br>이 조건은 1,000호점 달성 전까지만 유지됩니다.</p>
     </div>
     <div class="cost-card reveal rd1">
@@ -1649,7 +1665,7 @@
       <div class="cost-lines">
         <div class="cost-line"><span class="cll">가맹비</span><div class="clr"><div class="price-anim"><span class="pa-orig">2,200만 원</span><span class="pa-arrow">→</span><span class="pa-new">500만 <span class="ba">원</span></span></div></div></div>
         <div class="cost-line"><span class="cll">교육비</span><div class="clr"><div class="price-anim"><span class="pa-orig">1,100만 원</span><span class="pa-arrow">→</span><span class="pa-new">200만 <span class="ba">원</span></span></div></div></div>
-        <div class="cost-line"><span class="cll">계약이행 보증금<span class="cll-note">(만료 시 반환)</span></span><div class="clr"><div class="price-anim"><span class="pa-orig">2,200만 원</span><span class="pa-arrow">→</span><span class="pa-new exempt">면제</span></div></div></div>
+        <div class="cost-line"><span class="cll">계약이행 보증금<br class="mob-br"><span class="cll-note">(만료 시 반환)</span></span><div class="clr"><div class="price-anim"><span class="pa-orig">2,200만 원</span><span class="pa-arrow">→</span><span class="pa-new exempt">면제</span></div></div></div>
         <div class="cost-line"><span class="cll">기타 초기비용 (인테리어·집기 등)</span><div class="clr"><span class="c-val" style="font-size:18px;font-weight:500;color:var(--text-sub)">별도 협의</span></div></div>
       </div>
     </div>
@@ -1726,10 +1742,10 @@
 <section class="cta-section" id="cta">
   <div class="wrap cta-inner reveal">
     <h2 class="cta-h">창업이 고민이라면,<br>일단 들어보세요</h2>
-    <p class="cta-p">30분이면 충분합니다.<br>비용, 수익, 상권 — 모든 데이터를 그 자리에서 공개합니다.</p>
+    <p class="cta-p">30분이면 충분합니다.<br>비용, 수익, 상권<br class="mob-br"> 모든 데이터를 그 자리에서 공개합니다.</p>
     <div class="cta-contact">
       <p class="cta-contact-label">💬 &nbsp;빠른 상담 안내</p>
-      <p class="cta-contact-main">이 가이드북을 받으신 번호로 연락 주시면 됩니다</p>
+      <p class="cta-contact-main">이 가이드북을 받으신 번호로<br class="mob-br"> 연락 주시면 됩니다</p>
       <p class="cta-contact-sub">담당자가 직접 확인 후 가장 빠르게 연락드립니다. 문자 한 통이면 충분합니다.</p>
     </div>
     <p class="cta-note">계약 의무 없음 · 당일 결정 불필요 · 계약 압박 없음</p>
