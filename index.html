@@ -1038,9 +1038,11 @@
       .prop-chips { flex-wrap: nowrap; }
       .prop-chip { white-space: nowrap; flex-shrink: 0; }
 
-      /* ── 언론 보도 strip — 간격 축소 + 일렬 배치 ── */
-      .press-media-strip { flex-wrap: nowrap; margin-bottom: 28px; padding: 10px 18px; gap: 10px; }
+      /* ── 언론 보도 strip — 뷰포트 안에 맞게 축소 ── */
+      .press-media-strip { display: flex; width: 100%; justify-content: center; flex-wrap: nowrap; margin-bottom: 28px; padding: 8px 14px; gap: 7px; box-sizing: border-box; }
+      .press-media-name { font-size: 11px; letter-spacing: 0; }
       .press-media-dot { flex-shrink: 0; }
+      .press-media-dot { width: 2px; height: 2px; }
 
       /* ── 모바일 전용 br (데스크탑에서는 숨김) ── */
       br.mob-br { display: inline; }
