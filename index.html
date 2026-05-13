@@ -1022,6 +1022,9 @@
       /* ── stat 카드 수치 — 줄바꿈 방지 + 숫자/단위 크기 조정 ── */
       .stat-num { font-size: clamp(22px, 5.5vw, 28px); white-space: nowrap; }
       .stat-num .acc { font-size: 0.72em; }
+      /* 700만원 카드: 700은 크게, 만원은 작게 */
+      .stat-box:nth-child(4) .stat-num .acc { font-size: 1em; }
+      .stat-num .unit-sm { font-size: 0.72em; }
 
       /* ── 슬라이딩 넘버 줄바꿈 방지 ── */
       .sn-num { white-space: nowrap; }
@@ -1284,7 +1287,7 @@
     </div>
     <div class="stat-box reveal rd3">
       <p class="stat-lbl">창업 최소 시작 비용</p>
-      <p class="stat-num"><span class="acc">700</span>만원</p>
+      <p class="stat-num"><span class="acc">700</span><span class="unit-sm">만원</span></p>
       <p class="stat-note">가맹비 + 교육비 합산</p>
     </div>
   </div>
@@ -1564,6 +1567,7 @@
         <div class="pcard-outlet">일간스포츠</div>
         <div class="pcard-date">2026.04.30</div>
         <h3 class="pcard-title">옆커폰, 전국 700호점 돌파… 1,000호점까지 창업비용 700만 원 혜택 유지</h3>
+        <p class="pcard-desc">고물가·고금리 시대에 소자본 창업 부담을 낮추기 위해 1,000호점까지 700만 원 혜택을 유지한다. 본사 직접 마케팅 지원과 공식 앱으로 점주 운영을 전방위 뒷받침한다.</p>
         <span class="pcard-link">기사 보기 →</span>
       </a>
 
@@ -1572,6 +1576,7 @@
         <div class="pcard-outlet">전자신문</div>
         <div class="pcard-date">2026.05.01</div>
         <h3 class="pcard-title">옆커폰, '기존 대리점 한계 넘다'… 전국 700호점 돌파</h3>
+        <p class="pcard-desc">기존 대리점의 복잡한 구조를 개선한 투명 유통 시스템이 핵심. 본사가 억 단위 마케팅을 선투입하고 공식 앱으로 고객 관리를 디지털화해 점주 부담을 줄였다.</p>
         <span class="pcard-link">기사 보기 →</span>
       </a>
 
@@ -1580,6 +1585,7 @@
         <div class="pcard-outlet">경상일보</div>
         <div class="pcard-date">2026.05.02</div>
         <h3 class="pcard-title">휴대폰 프랜차이즈 '옆커폰', 1000호점까지 창업 지원 확대</h3>
+        <p class="pcard-desc">가맹비와 교육비를 포함한 총 창업비용을 700만 원으로 동결, 1,000호점 계약 시까지 적용되는 한정 혜택이다. 억 단위 마케팅 예산 투입으로 각 가맹점의 고객 유입도 지원한다.</p>
         <span class="pcard-link">기사 보기 →</span>
       </a>
 
@@ -1588,6 +1594,7 @@
         <div class="pcard-outlet">미주중앙일보</div>
         <div class="pcard-date">2026.05.04</div>
         <h3 class="pcard-title">옆커폰, 전국 가맹점 700호점 돌파… 투명한 유통 시스템 안착</h3>
+        <p class="pcard-desc">정찰제 기반 투명 가격 공개 시스템으로 기존 유통 시장의 불투명성을 개선했다. 연내 1,000호점 달성을 목표로 소자본 창업 지원 정책을 지속 확대하고 있다.</p>
         <span class="pcard-link">기사 보기 →</span>
       </a>
 
