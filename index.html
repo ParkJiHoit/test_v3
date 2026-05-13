@@ -1018,6 +1018,13 @@
 
       /* ── p 태그 안 데스크탑용 br 제거 (hero-sub는 유지 — '증명합니다.' 다음 줄바꿈 의도적) ── */
       .sec-p br, .cta-p br { display: none; }
+
+      /* ── stat 카드 수치 — 줄바꿈 방지 + 숫자/단위 크기 조정 ── */
+      .stat-num { font-size: clamp(22px, 5.5vw, 28px); white-space: nowrap; }
+      .stat-num .acc { font-size: 0.72em; }
+
+      /* ── 슬라이딩 넘버 줄바꿈 방지 ── */
+      .sn-num { white-space: nowrap; }
     }
 
     /* ══════════════════════════════════
