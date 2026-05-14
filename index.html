@@ -1445,7 +1445,7 @@
         <div class="prop-card">
           <div class="prop-icon">💡</div>
           <p class="prop-title">통신 3사 취급 +<br class="mob-br"> 다양한 수익원</p>
-          <p class="prop-desc">휴대폰 판매에서 그치지 않습니다. SK·KT·LG 3사를 동시에 취급하고, 인터넷·정수기·가전렌탈 결합 상품까지 연결해 객단가를 높입니다.</p>
+          <p class="prop-desc">휴대폰 판매에서 그치지 않습니다. SK·KT·LG 3사를 동시에 취급하고, 인터넷·정수기·가전 렌탈 결합 상품까지 연결해 객단가를 높입니다.</p>
           <div class="prop-chips">
             <span class="prop-chip">통신 3사</span>
             <span class="prop-chip">인터넷 결합</span>
@@ -1528,7 +1528,7 @@
             <div class="rbc-profit-fill" id="profit-fill" data-w="65"></div>
           </div>
           <div class="rbc-profit-compare"><span>타 업종 20~30%</span><span>옆커폰 60~70%</span></div>
-          <p class="rbc-profit-desc">고정 원가 없이 수수료 구조로 수익을 가져갑니다.<br class="mob-br"> 재고 손실·인건비 없이 순이익을 극대화합니다.</p>
+          <p class="rbc-profit-desc">고정 원가 없이 수수료 구조로 수익을 가져갑니다.<br><br class="mob-br"> 재고 손실·인건비 없이 순이익을 극대화합니다.</p>
         </div>
       </div>
     </div>
@@ -1712,7 +1712,7 @@
         <div class="faq-body"><div class="faq-body-in">전혀 문제없습니다. 실제 매출이 발생하고 있는 상위 매출 지점에서 직접 실습하는 옆커폰만의 현장 교육 시스템이 준비되어 있습니다. 판매부터 고객 응대까지 실전 경험을 쌓을 수 있으며, 본사 슈퍼바이저가 운영이 안정화될 때까지 1:1로 함께합니다. 실제로 저희 가맹점주 중 상당수가 판매 경험 없이 시작하셨습니다.</div></div>
       </div>
       <div class="faq-item reveal rd1">
-        <button class="faq-btn"><div class="faq-left"><span class="faq-qnum">Q 02</span><span class="faq-qtxt">미팅은 어떻게 진행되나요? 계약 압박 있나요?</span></div><div class="faq-tog"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div></button>
+        <button class="faq-btn"><div class="faq-left"><span class="faq-qnum">Q 02</span><span class="faq-qtxt">미팅은 어떻게 진행되나요? 상담만 받아봐도 괜찮나요?</span></div><div class="faq-tog"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div></button>
         <div class="faq-body"><div class="faq-body-in">약 30분~1시간의 정보 공유 미팅으로 진행됩니다. 저희 미팅은 일방적인 설명이 아니라, 상담자분의 상황을 충분히 듣는 자리입니다. 실제 매장 운영 데이터와 수익 구조를 투명하게 공유드리며, 당일 계약을 요구하는 일은 없습니다. 결정은 언제나 상담자분의 몫입니다.</div></div>
       </div>
       <div class="faq-item reveal rd2">
@@ -1730,7 +1730,7 @@
   <div class="wrap">
     <div class="reveal">
       <span class="sec-lbl">창업 비용</span>
-      <h2 class="sec-h">최소 700만 원으로<br>시작할 수 있습니다</h2>
+      <h2 class="sec-h">최소 700만 원부터<br>시작할 수 있습니다</h2>
       <p class="sec-p">가맹비 + 교육비, 두 항목을 합산한 특별 혜택가입니다.<br>이 조건은 1,000호점 달성 전까지만 유지됩니다.</p>
     </div>
     <div class="cost-card reveal rd1">
@@ -2061,7 +2061,9 @@ new IntersectionObserver(([e]) => {
     const trackW = track.scrollWidth;
     const outerW = track.parentElement.offsetWidth;
     const maxX   = Math.max(0, trackW - outerW);
-    track.style.transform = `translateX(${-(progress * maxX).toFixed(2)}px)`;
+    const SPEED  = 1.6; // 1.0 = 기본, 높을수록 빠름
+    const moveX  = Math.min(progress * maxX * SPEED, maxX);
+    track.style.transform = `translateX(${-moveX.toFixed(2)}px)`;
 
     /* active dot */
     const activeIdx = Math.round(progress * (N - 1));
