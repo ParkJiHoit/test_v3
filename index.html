@@ -65,6 +65,72 @@
 
     /* NAV 제거됨 */
 
+    /* ── 하단 고정 CTA ── */
+    #sticky-cta {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+      padding: 16px 20px calc(16px + env(safe-area-inset-bottom));
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid rgba(96,52,167,.12);
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      transform: translateY(100%);
+      transition: transform .4s cubic-bezier(.16,1,.3,1);
+    }
+    #sticky-cta.visible { transform: translateY(0); }
+    #sticky-cta.hidden  { transform: translateY(100%); }
+    .sticky-cta-text {
+      font-size: 14px; font-weight: 600;
+      color: var(--text-sub);
+      line-height: 1.4;
+      flex: 1;
+    }
+    .sticky-cta-text strong {
+      display: block;
+      font-size: 15px; font-weight: 700;
+      color: var(--text);
+    }
+    .sticky-cta-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 13px 22px;
+      background: linear-gradient(135deg, #6034a7, #8a5bbf);
+      color: #fff;
+      border-radius: 100px;
+      font-size: 14px; font-weight: 700;
+      white-space: nowrap;
+      box-shadow: 0 4px 20px rgba(96,52,167,.35);
+      flex-shrink: 0;
+    }
+
+    /* ── 모바일: 풀바 → 우측 하단 소형 버튼으로 ── */
+    @media (max-width: 768px) {
+      #sticky-cta {
+        bottom: 20px; right: 16px; left: auto;
+        border-top: none; border-radius: 100px;
+        padding: 0;
+        background: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        box-shadow: none;
+        width: auto;
+      }
+      .sticky-cta-text { display: none; }
+      .sticky-cta-btn {
+        padding: 14px 20px;
+        font-size: 13px;
+        box-shadow: 0 6px 24px rgba(96,52,167,.45);
+      }
+    }
+
+    /* ── 읽기 진행 바 ── */
+    #read-progress {
+      position: fixed; top: 0; left: 0; z-index: 9999;
+      height: 3px; width: 0%;
+      background: linear-gradient(90deg, #6034a7, #d86c9e);
+      transition: width .1s linear;
+      pointer-events: none;
+    }
+
     /* ══════════════════════════════════
        HERO — 딥블루 실크
     ══════════════════════════════════ */
@@ -1252,6 +1318,18 @@
   </style>
 </head>
 <body>
+<div id="read-progress"></div>
+
+<!-- 하단 고정 CTA -->
+<div id="sticky-cta" aria-hidden="true">
+  <div class="sticky-cta-text">
+    <strong>무료 미팅 신청하기</strong>
+    30분이면 모든 조건을 확인할 수 있어요
+  </div>
+  <a class="sticky-cta-btn" href="#cta">
+    신청하기 →
+  </a>
+</div>
 
 <!-- ══ HERO ══ -->
 <section class="hero">
@@ -1397,7 +1475,7 @@
 </section>
 
 <!-- ══ REVENUE ══ -->
-<section class="revenue-section">
+<section class="revenue-section" id="revenue">
   <div class="wrap">
     <div class="reveal">
       <span class="sec-lbl">실적 공개</span>
@@ -1621,7 +1699,7 @@
 </section>
 
 <!-- ══ FAQ ══ -->
-<section class="faq-section">
+<section class="faq-section" id="faq">
   <div class="wrap">
     <div class="reveal">
       <span class="sec-lbl">FAQ</span>
@@ -1678,7 +1756,7 @@
 </section>
 
 <!-- ══ MEETING ══ -->
-<section class="meeting-section">
+<section class="meeting-section" id="meeting">
   <div class="wrap">
     <div class="reveal">
       <span class="sec-lbl">미팅 프로세스</span>
@@ -2090,6 +2168,38 @@ document.querySelectorAll('.faq-btn').forEach(btn => {
     }
   });
 });
+</script>
+
+<script>
+/* ── 하단 고정 CTA ── */
+(function () {
+  const cta = document.getElementById('sticky-cta');
+  const ctaSection = document.getElementById('cta');
+  const hero = document.querySelector('.hero');
+
+  window.addEventListener('scroll', function () {
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    const ctaTop = ctaSection.getBoundingClientRect().top;
+
+    if (heroBottom < 0 && ctaTop > window.innerHeight * 0.3) {
+      cta.classList.add('visible');
+      cta.setAttribute('aria-hidden', 'false');
+    } else {
+      cta.classList.remove('visible');
+      cta.setAttribute('aria-hidden', 'true');
+    }
+  }, { passive: true });
+})();
+
+/* ── 읽기 진행 바 ── */
+(function () {
+  const bar = document.getElementById('read-progress');
+  window.addEventListener('scroll', function () {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+  }, { passive: true });
+})();
 </script>
 </body>
 </html>
