@@ -68,7 +68,7 @@
     /* ── 하단 고정 CTA ── */
     #sticky-cta {
       position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
-      padding: 16px 20px calc(16px + env(safe-area-inset-bottom));
+      padding: 10px 20px calc(10px + env(safe-area-inset-bottom));
       background: rgba(255,255,255,.92);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
@@ -92,7 +92,7 @@
     }
     .sticky-cta-btn {
       display: inline-flex; align-items: center; gap: 6px;
-      padding: 13px 22px;
+      padding: 9px 20px;
       background: linear-gradient(135deg, #6034a7, #8a5bbf);
       color: #fff;
       border-radius: 100px;
@@ -357,6 +357,37 @@
     .prop-risk {
       font-size: 13px; font-weight: 600; color: var(--text-sub);
       line-height: 1.6; margin-top: 14px; position: relative; z-index: 1;
+    }
+    /* 커뮤니티 파워 카드 */
+    .prop-comm-stats {
+      display: flex; gap: 8px;
+      margin: 20px 0 16px; position: relative; z-index: 1;
+    }
+    .prop-comm-item {
+      flex: 1;
+      background: linear-gradient(145deg, rgba(96,52,167,.07), rgba(160,139,208,.10));
+      border: 1px solid rgba(160,139,208,.22);
+      border-radius: 14px;
+      padding: 14px 8px;
+      text-align: center;
+      display: flex; flex-direction: column; gap: 5px;
+    }
+    .prop-comm-platform {
+      display: flex; align-items: center; justify-content: center; gap: 5px;
+      font-size: 10px; font-weight: 700; color: var(--text-muted);
+      letter-spacing: .04em; text-transform: uppercase;
+    }
+    .prop-comm-platform-dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--blue);
+      flex-shrink: 0;
+    }
+    .prop-comm-num {
+      font-size: 22px; font-weight: 900;
+      color: var(--blue-deep); letter-spacing: -.03em;
+      line-height: 1;
+    }
+    .prop-comm-label {
+      font-size: 10px; font-weight: 600; color: var(--text-muted);
     }
     /* 뱃지: 항상 카드 최하단 */
     .prop-badge {
@@ -857,9 +888,9 @@
     .cex-title { font-size: 19px; font-weight: 700; color: var(--text); margin-bottom: 10px; line-height: 1.3; }
     .cex-desc { font-size: 14px; color: var(--text-sub); line-height: 1.72; margin-bottom: 14px; }
     .cex-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .cex-list li { display: flex; align-items: baseline; gap: 10px; font-size: 15px; font-weight: 600; color: var(--text); }
+    .cex-list li { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; color: var(--text); }
     .cex-li-opt { color: var(--text-sub) !important; font-weight: 500 !important; font-size: 14px !important; }
-    .cex-li-label { display: inline-flex; align-items: center; justify-content: center; padding: 2px 9px; border-radius: 100px; background: var(--blue-pale2); color: var(--blue); font-size: 11px; font-weight: 700; letter-spacing: .04em; flex-shrink: 0; }
+    .cex-li-label { display: inline-flex; align-items: center; justify-content: center; width: 52px; padding: 2px 0; border-radius: 100px; background: var(--blue-pale2); color: var(--blue); font-size: 11px; font-weight: 700; letter-spacing: .04em; flex-shrink: 0; }
     .cex-li-label.opt { background: rgba(30,15,66,.06); color: var(--text-muted); }
 
     /* ── Price reveal animation ── */
@@ -1407,29 +1438,29 @@
     <div class="props-track-outer">
       <div class="props-track" id="props-track">
 
-        <!-- 카드 1: 초기비용 비교 차트 -->
+        <!-- 카드 1: 브랜드 커뮤니티 파워 -->
         <div class="prop-card">
-          <div class="prop-icon">💰</div>
-          <p class="prop-title">700만 원으로<br>시작합니다</p>
-          <div class="prop-cmp-chart">
-            <div class="prop-cmp-row">
-              <span class="prop-cmp-label">요식업</span>
-              <div class="prop-cmp-track"><div class="prop-cmp-fill" data-w="90"></div></div>
-              <span class="prop-cmp-val">1억~3억+</span>
+          <div class="prop-icon">🌐</div>
+          <p class="prop-title">고객이 스스로 <br class="mob-br">찾아오는 구조</p>
+          <div class="prop-comm-stats">
+            <div class="prop-comm-item">
+              <span class="prop-comm-platform"><span class="prop-comm-platform-dot"></span>회원</span>
+              <span class="prop-comm-num">75만</span>
+              <span class="prop-comm-label">네이버 카페</span>
             </div>
-            <div class="prop-cmp-row">
-              <span class="prop-cmp-label">편의점</span>
-              <div class="prop-cmp-track"><div class="prop-cmp-fill" data-w="58"></div></div>
-              <span class="prop-cmp-val">8천만~1.5억</span>
+            <div class="prop-comm-item">
+              <span class="prop-comm-platform"><span class="prop-comm-platform-dot"></span>구독</span>
+              <span class="prop-comm-num">50만</span>
+              <span class="prop-comm-label">유튜브</span>
             </div>
-            <div class="prop-cmp-row">
-              <span class="prop-cmp-label">옆커폰</span>
-              <div class="prop-cmp-track"><div class="prop-cmp-fill best" data-w="8"></div></div>
-              <span class="prop-cmp-val best">700~1,200만</span>
+            <div class="prop-comm-item">
+              <span class="prop-comm-platform"><span class="prop-comm-platform-dot" style="background:#d86c9e"></span>팔로워</span>
+              <span class="prop-comm-num">3만</span>
+              <span class="prop-comm-label">인스타그램</span>
             </div>
           </div>
-          <p class="prop-risk">가장 낮은 진입 장벽으로 리스크를 최소화합니다.</p>
-          <div class="prop-badge"><span class="prop-badge-num">1/10</span> 수준의 초기비용</div>
+          <p class="prop-risk">대규모 커뮤니티가 고객을 자동으로 유입시킵니다.</p>
+          <div class="prop-badge"><span class="prop-badge-num">128만+</span> 통합 팔로워 커뮤니티</div>
         </div>
 
         <!-- 카드 2 -->
@@ -1464,9 +1495,9 @@
         <!-- 카드 5 -->
         <div class="prop-card">
           <div class="prop-icon">📣</div>
-          <p class="prop-title">본사 월 N억+ 마케팅 집행</p>
-          <p class="prop-desc">월 N억 규모 광고비를 본사가 직접 집행합니다. 128만+ 팔로워 커뮤니티가 이미 구축되어 있어 별도 홍보 비용 없이 고객이 먼저 찾아옵니다.</p>
-          <div class="prop-badge"><span class="prop-badge-num">128만+</span> 팔로워 커뮤니티</div>
+          <p class="prop-title">본사가 월 N억대 광고비를<br>집행합니다</p>
+          <p class="prop-desc">네이버·유튜브·인스타그램 등 주요 채널에 월 N억 규모 광고를 본사가 직접 운영합니다. 점주가 마케팅에 신경 쓰지 않아도 브랜드 인지도가 지속적으로 쌓입니다.</p>
+          <div class="prop-badge">상담과 판매만 <span class="prop-badge-num">집중</span></div>
         </div>
 
       </div>
