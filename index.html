@@ -823,6 +823,30 @@
     .faq-item.open .faq-tog svg { stroke: #fff; transform: rotate(45deg); }
     .faq-body { overflow: hidden; max-height: 0; transition: max-height .4s cubic-bezier(.16,1,.3,1); }
     .faq-body-in { padding: 0 0 28px 52px; font-size: 16px; color: var(--text-sub); line-height: 1.82; }
+    .faq-highlight {
+      margin: 14px 0 6px;
+      padding: 16px 18px;
+      background: linear-gradient(135deg, rgba(96,52,167,.06), rgba(160,139,208,.08));
+      border: 1px solid rgba(96,52,167,.14);
+      border-left: 3px solid #6034a7;
+      border-radius: 12px;
+      display: flex; flex-direction: column; gap: 5px;
+    }
+    .faq-hl-tag {
+      font-size: 10px; font-weight: 800; letter-spacing: .12em;
+      color: #6034a7; text-transform: uppercase;
+    }
+    .faq-hl-main {
+      font-size: 16px; font-weight: 800; color: var(--text);
+      line-height: 1.45;
+    }
+    .faq-hl-main em {
+      font-style: normal; color: #6034a7;
+    }
+    .faq-hl-sub {
+      font-size: 13px; font-weight: 500; color: var(--text-sub);
+      line-height: 1.6; margin-top: 2px;
+    }
 
 
     .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -1463,7 +1487,20 @@
           <div class="prop-badge"><span class="prop-badge-num">128만+</span> 통합 팔로워 커뮤니티</div>
         </div>
 
-        <!-- 카드 2 -->
+        <!-- 카드 2: 상권분석 지원 -->
+        <div class="prop-card">
+          <div class="prop-icon">📍</div>
+          <p class="prop-title">전문팀이 상권을<br>직접 분석해드립니다</p>
+          <p class="prop-desc">휴대폰 매장 전문 상권분석팀이 별도로 운영됩니다. 지역 유동인구 분석부터 경쟁 매장 현황까지 파악한 뒤, 최적 입지 선정까지 함께 지원합니다.</p>
+          <div class="prop-chips">
+            <span class="prop-chip">지역 상권 분석</span>
+            <span class="prop-chip">경쟁점 분석</span>
+            <span class="prop-chip">입지 선정 지원</span>
+          </div>
+          <div class="prop-badge">전문 <span class="prop-badge-num">상권분석팀</span> 운영</div>
+        </div>
+
+        <!-- 카드 3 -->
         <div class="prop-card">
           <div class="prop-icon">📱</div>
           <p class="prop-title">1인 운영,<br>처음부터 가능합니다</p>
@@ -1476,6 +1513,9 @@
           <div class="prop-icon">📦</div>
           <p class="prop-title">재고 부담이 없습니다</p>
           <p class="prop-desc">위탁 판매 구조로 불필요한 재고를 쌓을 필요가 없습니다. 요식업·편의점과 달리 재고 손실 리스크가 거의 없습니다.</p>
+          <div class="prop-chips">
+            <span class="prop-chip">초도물량 없음</span>
+          </div>
           <div class="prop-badge">재고 부담 <span class="prop-badge-num">최소화</span></div>
         </div>
 
@@ -1504,6 +1544,7 @@
     </div>
     <div class="props-dots" id="props-dots">
       <div class="props-dot active"></div>
+      <div class="props-dot"></div>
       <div class="props-dot"></div>
       <div class="props-dot"></div>
       <div class="props-dot"></div>
@@ -1747,7 +1788,13 @@
     <div class="faq-list">
       <div class="faq-item reveal">
         <button class="faq-btn"><div class="faq-left"><span class="faq-qnum">Q 01</span><span class="faq-qtxt">휴대폰 판매 경험이 없어도 할 수 있나요?</span></div><div class="faq-tog"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div></button>
-        <div class="faq-body"><div class="faq-body-in">전혀 문제없습니다. 실제 매출이 발생하고 있는 상위 매출 지점에서 직접 실습하는 옆커폰만의 현장 교육 시스템이 준비되어 있습니다. 판매부터 고객 응대까지 실전 경험을 쌓을 수 있으며, 본사 슈퍼바이저가 운영이 안정화될 때까지 1:1로 함께합니다. 실제로 저희 가맹점주 중 상당수가 판매 경험 없이 시작하셨습니다.</div></div>
+        <div class="faq-body"><div class="faq-body-in">전혀 문제없습니다. 실제 운영 중인 상위 매출 지점에서 직접 실습하는 옆커폰만의 현장 교육 시스템이 준비되어 있습니다. 판매부터 고객 응대까지 실전 경험을 쌓을 수 있으며, 본사 슈퍼바이저가 운영이 안정화될 때까지 1:1로 함께합니다.
+          <div class="faq-highlight">
+            <span class="faq-hl-tag">실제 사례</span>
+            <p class="faq-hl-main">휴대폰 판매 경험 <em>0</em>에서 시작한<br>부산 가맹점주, <em>전국 매출 1위</em> 달성</p>
+            <p class="faq-hl-sub">무경험으로 창업해 옆커폰 교육 시스템만으로 실력을 쌓은 결과,<br>현재 부산 지역 가맹점 중 매출 1위를 기록하고 있습니다.</p>
+          </div>
+        </div></div>
       </div>
       <div class="faq-item reveal rd1">
         <button class="faq-btn"><div class="faq-left"><span class="faq-qnum">Q 02</span><span class="faq-qtxt">미팅은 어떻게 진행되나요?<br class="mob-br"> 상담만 받아봐도 괜찮나요?</span></div><div class="faq-tog"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div></button>
